@@ -24,3 +24,7 @@ Custom library writen by lessons in Udemy (Advanced JavaScript)
 .on(eventName, callback) - add event listener (eventName) to element and add callback when the event is worked "eventName and callback is mandatory arguments"
 .off(eventName, callback) - remove event listener (eventName) to element and remove callback when the event is worked "eventName and callback is mandatory arguments"
 .click(handler) - add event listener (click) to element and add handler function when the event is worked "handler is not mandatory argument"
+
+# Effects
+.fadeIn(duration, display, final) - show element with change element opacity and display, (duration - time, display - display after show element, default - block, final - function which will be fulfilled after animation)
+.fadeOut(duration, final) - hide element with change element opacity and display, (duration - time, final - function which will be fulfilled after animation)
