@@ -450,6 +450,34 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeOut = function (dura
   }
 };
 
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeToggle = function (duration, display, final) {
+  for (let i = 0; i < this.length; i++) {
+    if (window.getComputedStyle(this[i]).display === 'none') {
+      this[i].style.display = display || 'block';
+
+      const _fadeIn = complection => {
+        this[i].style.opacity = complection;
+      };
+
+      const ani = this.animateOverTime(duration, _fadeIn, final);
+      requestAnimationFrame(ani);
+    } else {
+      const _fadeOut = complection => {
+        this[i].style.opacity = 1 - complection;
+
+        if (complection === 1) {
+          this[i].style.display = 'none';
+        }
+      };
+
+      const ani = this.animateOverTime(duration, _fadeOut, final);
+      requestAnimationFrame(ani);
+    }
+  }
+
+  return this;
+};
+
 /***/ }),
 
 /***/ "./src/js/lib/modules/handlers.js":
@@ -514,13 +542,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_lib_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/lib.js */ "./src/js/lib/lib.js");
 
 func('#first').on('click', () => {
-  func('div').eq(1).fadeOut(1000);
+  func('div').eq(1).fadeToggle(1000);
 });
 func('[data-count="second"]').on('click', () => {
-  func('div').eq(2).fadeOut(1000);
+  func('div').eq(2).fadeToggle(1000);
 });
 func('button').eq(2).on('click', () => {
-  func('.w500').fadeOut(1000);
+  func('.w500').fadeToggle(1000);
 });
 
 /***/ })

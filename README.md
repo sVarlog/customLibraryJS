@@ -28,3 +28,4 @@ Custom library writen by lessons in Udemy (Advanced JavaScript)
 # Effects
 .fadeIn(duration, display, final) - show element with change element opacity and display, (duration - time, display - display after show element, default - block, final - function which will be fulfilled after animation)
 .fadeOut(duration, final) - hide element with change element opacity and display, (duration - time, final - function which will be fulfilled after animation)
+.fadeToggle(duration, display, final) - show/hide element with change element opaacity and display, (duration - time, display after show elemen, default - block, final - function which will be fulfilled after animation)
