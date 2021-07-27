@@ -513,17 +513,15 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handle
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_lib_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/lib.js */ "./src/js/lib/lib.js");
 
-func('button').on('click', function () {
-  func('div').eq(2).toggleClass('active');
+func('#first').on('click', () => {
+  func('div').eq(1).fadeOut(1000);
 });
-func('div').click(function () {
-  console.log(func(this).index());
+func('[data-count="second"]').on('click', () => {
+  func('div').eq(2).fadeOut(1000);
 });
-console.log(func('div').find('.some')); // console.log(func('button').html('hello'));
-// console.log(func('div').eq(2).find('.some'));
-// console.log(func('.some').closest('.findMe'));
-
-console.log(func('.findMe').siblings());
+func('button').eq(2).on('click', () => {
+  func('.w500').fadeOut(1000);
+});
 
 /***/ })
 
