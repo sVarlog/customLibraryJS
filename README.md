@@ -43,3 +43,58 @@ Dropdown menu component
     </div>
 </div>
 ```
+Accordion component
+* HTML structure
+```html
+<div class="accordion mt20 block-center">
+    <div class="accordion-head">
+        <span>Collapse first element</span>
+    </div>
+    <div class="accordion-content">
+        <div class="accordion-inner">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio debitis aut, necessitatibus vel quas beatae.
+        </div>
+    </div>
+    <div class="accordion-head">
+        <span>Collapse second element</span>
+    </div>
+    <div class="accordion-content">
+        <div class="accordion-inner">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio debitis aut, necessitatibus vel quas beatae.
+        </div>
+    </div>
+</div>
+```
+```js
+func('.accordion-head').accordion();
+```
+Tab
+* HTML structure tabs
+```html
+<div class="tab mt20 block-center">
+    <div class="tab-panel" data-tabpanel>
+        <div class="tab-item tab-item--active">Content 1</div>
+        <div class="tab-item">Content 2</div>
+        <div class="tab-item">Content 3</div>
+    </div>
+    <div class="tab-content tab-content--active">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, soluta.
+        <br> <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, sit.
+    </div>
+    <div class="tab-content">
+        Lorem ipsum dolor, sit amet consectetur adipisicing.
+        <br> <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil voluptates delectus itaque, perferendis autem porro!
+    </div>
+    <div class="tab-content">
+        test
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, repellat?
+        <br> <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat maiores ipsam harum reiciendis!
+    </div>
+</div>
+```
+```js
+func('[data-tabpanel] .tab-item').tab();
+```
