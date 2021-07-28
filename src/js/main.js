@@ -1,16 +1,16 @@
 import './lib/lib.js';
 
-func('.wrap').html(
-    `
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton">Dropdown button</button>
-            <div class="dropdown-menu" data-toggle-id="dropdownMenuButton">
-                <a href="#" class="dropdown-item">Action</a>
-                <a href="#" class="dropdown-item">Action 2</a>
-                <a href="#" class="dropdown-item">Action 3</a>
-            </div>
-        </div>
-    `
-);
-
-func('.dropdown-toggle').dropdown();
+func('#trigger').click(() => func('#trigger').createModal({
+    text: {
+        title: 'Modal title',
+        body: 'Modal body text'
+    },
+    btns: {
+        count: 3,
+        settings: [
+            ['Close', ['btn-danger', 'mr10'], true],
+            ['Save changes', ['btn-success'], false, () => {alert('Changes saved')}],
+            ['Another btn', ['btn-warning', 'ml10'], false, () => {alert('Hello world')}]
+        ]
+    }
+}));
