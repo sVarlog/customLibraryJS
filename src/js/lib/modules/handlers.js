@@ -33,3 +33,7 @@ func.prototype.click = function(handler) {
 
     return this;
 };
+
+func.prototype.getNum = function(num) {
+    return Number(num.toString().replace(/\D/g, ''));
+};

@@ -14,3 +14,5 @@ func('#trigger').click(() => func('#trigger').createModal({
         ]
     }
 }));
+
+func('.carousel').carousel();

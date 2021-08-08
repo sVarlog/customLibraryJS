@@ -117,6 +117,72 @@ Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.accordion-head').accordi
 
 /***/ }),
 
+/***/ "./src/js/lib/components/carousel.js":
+/*!*******************************************!*\
+  !*** ./src/js/lib/components/carousel.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+
+
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
+  for (let i = 0; i < this.length; i++) {
+    const width = window.getComputedStyle(this[i].querySelector('.carousel-inner')).width;
+    const slides = this[i].querySelectorAll('.carousel-item');
+    const slidesField = this[i].querySelector('.carousel-slides');
+    const dots = this[i].querySelectorAll('.carousel-indicators li');
+    slidesField.style.width = `${100 * slides.length}%`;
+    slides.forEach(el => {
+      el.style.width = width;
+    });
+    let offset = 0;
+    let slideIndex = 0;
+
+    const changeSlide = ({
+      dir = false,
+      dot = false
+    }) => {
+      if (dir === 'next') {
+        offset === Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])().getNum(width) * (slides.length - 1) ? offset = 0 : offset += Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])().getNum(width);
+        slideIndex >= slides.length - 1 ? slideIndex = 0 : slideIndex++;
+      } else if (dir === 'prev') {
+        offset === 0 ? offset = Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])().getNum(width) * (slides.length - 1) : offset -= Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])().getNum(width);
+        slideIndex <= 0 ? slideIndex = slides.length - 1 : slideIndex--;
+      } else if (dot) {
+        offset = Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])().getNum(width) * dot;
+        slideIndex = dot;
+      }
+
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[slideIndex].classList.add('active');
+      slidesField.style.transform = `translateX(-${offset}px)`;
+    };
+
+    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i].querySelector('[data-slide="next"]')).on('click', e => {
+      e.preventDefault();
+      changeSlide({
+        dir: 'next'
+      });
+    });
+    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i].querySelector('[data-slide="prev"]')).on('click', e => {
+      e.preventDefault();
+      changeSlide({
+        dir: 'prev'
+      });
+    });
+    const sliderId = this[i].getAttribute('id');
+    Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])(`#${sliderId} .carousel-indicators li`).click(e => changeSlide({
+      dot: e.target.getAttribute('data-slide-to')
+    }));
+  }
+};
+
+/***/ }),
+
 /***/ "./src/js/lib/components/dropdown.js":
 /*!*******************************************!*\
   !*** ./src/js/lib/components/dropdown.js ***!
@@ -327,6 +393,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/modal */ "./src/js/lib/components/modal.js");
 /* harmony import */ var _components_tab__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/tab */ "./src/js/lib/components/tab.js");
 /* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/accordion */ "./src/js/lib/components/accordion.js");
+/* harmony import */ var _components_carousel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/carousel */ "./src/js/lib/components/carousel.js");
+
 
 
 
@@ -723,6 +791,10 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handle
   return this;
 };
 
+_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.getNum = function (num) {
+  return Number(num.toString().replace(/\D/g, ''));
+};
+
 /***/ }),
 
 /***/ "./src/js/main.js":
@@ -750,6 +822,7 @@ func('#trigger').click(() => func('#trigger').createModal({
     }]]
   }
 }));
+func('.carousel').carousel();
 
 /***/ })
 
