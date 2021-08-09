@@ -31,6 +31,10 @@ Custom library writen by lessons in Udemy (Advanced JavaScript)
 * .fadeOut(duration, final) - hide element with change element opacity and display, (duration - time, final - function which will be fulfilled after animation)
 * .fadeToggle(duration, display, final) - show/hide element with change element opaacity and display, (duration - time, display after show elemen, default - block, final - function which will be fulfilled after animation)
 
+# Services
+* .get(url, dataTypeAnswer) - get fetch which use url as url, dataTypeAnswer is what you need to return response type (json, blob, text)
+* .post(url, data, dataTypeAnswer) - post fetch which use url as url, data - is what you want to send to url, dataTypeAnswer is what you need to return response type (json, blob, text)
+
 # Components
 Dropdown menu component
 * HTML structure. Important is the same use id and use data-toggle-id attributes

@@ -16,3 +16,5 @@ func('#trigger').click(() => func('#trigger').createModal({
 }));
 
 func('.carousel').carousel();
+
+func().get('https://jsonplaceholder.typicode.com/todos/1').then(res => console.log(res));
